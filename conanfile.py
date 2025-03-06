@@ -11,7 +11,7 @@ class ProtoBufRecipe(ConanFile):
 
     def requirements(self):
         '依赖项'
-        self.requires("abseil/20240722.0")
+        self.requires("abseil/20250127.0@third_party/develop")
 
     def config_options(self):
         self.options["abseil"].shared = False

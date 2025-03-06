@@ -13,9 +13,6 @@ class ProtoBufRecipe(ConanFile):
         '依赖项'
         self.requires("abseil/20250127.0@third_party/develop")
 
-    def config_options(self):
-        self.options["abseil"].shared = False
-
     def layout(self):
         '这个函数必须要有，用于控制 conan 文件生成位置。'
         cmake_layout(self, build_folder="build_msvc")

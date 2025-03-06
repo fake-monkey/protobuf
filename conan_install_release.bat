@@ -1,3 +1,3 @@
-conan install . --build=never -s build_type=Release --build=never -r=conancenter
+conan install . --build=never --build=never -r=conancenter --profile=conan_profile
 del CMakeUserPresets.json
 pause

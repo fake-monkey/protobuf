@@ -13,7 +13,7 @@
         "CMAKE_INSTALL_PREFIX": "${sourceDir}/build_msvc/install",
         "protobuf_LOCAL_DEPENDENCIES_ONLY": "ON",
         "protobuf_BUILD_TESTS": "OFF",
-        "protobuf_BUILD_SHARED_LIBS": "NO",
+        "protobuf_BUILD_SHARED_LIBS": "OFF",
         "protobuf_WITH_ZLIB": "OFF"
       },
       "toolchainFile": "${sourceDir}/build_msvc/generators/conan_toolchain.cmake"

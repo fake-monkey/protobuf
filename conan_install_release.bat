@@ -1,3 +1,3 @@
-conan install . --build=never -r=fscut-conan-center --profile=conan_profile
-del CMakeUserPresets.json
+rem 必须 update
+conan install . --build=never --profile=conan_profile --update -r=fscut-conan-center
 pause

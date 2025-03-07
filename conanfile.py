@@ -18,7 +18,6 @@ class ProtoBufRecipe(ConanFile):
         cmake_layout(self, build_folder="build_msvc")
     
     def generate(self):
-        print("-------------------------------------------------------- generate")
         tc = CMakeToolchain(self) 
         tc.user_presets_path = False # prevent CMakeUserPresets.json from being generated
         for _, v in self.dependencies._data.items():

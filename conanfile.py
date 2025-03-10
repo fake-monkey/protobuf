@@ -5,12 +5,14 @@ from conan.tools.cmake import cmake_layout, CMakeToolchain
 
 class ProtoBufRecipe(ConanFile):
     name = "protobuf"
+    version = "30.0"
+    user = "third_party"
+    channel = "develop"
     settings = "os", "compiler", "build_type", "arch"
     '这个设置必须要有，否则会出现找不到 build_type 的错误。'
 
     def requirements(self):
         '依赖项'
-        #self.requires("abseil/20240722.0")
         self.requires("abseil/20250127.0@third_party/develop")
 
     def layout(self):

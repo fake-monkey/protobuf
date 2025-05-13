@@ -1,7 +1,5 @@
-from pathlib import Path
-
 from conan import ConanFile
-from conan.tools.cmake import cmake_layout, CMakeToolchain
+from conan.tools import files
 
 class ProtoBufRecipe(ConanFile):
     name = "protobuf"
@@ -13,9 +11,7 @@ class ProtoBufRecipe(ConanFile):
     def package_info(self):
         self.cpp_info.builddirs = ["cmake/protobuf","cmake/utf8_range"]
         self.cpp_info.set_property("cmake_find_mode", "none")
-    
-    def package_id(self):
-        del self.info.settings.compiler.runtime_type
 
     def package(self):
-        self.copy("*", self.source_folder, self.package_folder, keep_path=True)
+        for d in ['bin*/*', 'include/*', 'lib*/*', 'cmake/*', 'conanfile.py']:
+            files.copy(self, d, self.source_folder, self.package_folder, keep_path=True)

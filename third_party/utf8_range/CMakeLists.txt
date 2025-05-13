@@ -61,8 +61,8 @@ endif ()
 if (utf8_range_ENABLE_INSTALL)
     if(CMAKE_BUILD_TYPE STREQUAL Debug)
         # attach debug postfix only in debug mode
-        set(CMAKE_INSTALL_BINDIR "${CMAKE_INSTALL_BINDIR}d")
-        set(CMAKE_INSTALL_LIBDIR "${CMAKE_INSTALL_LIBDIR}d")
+        set(CMAKE_INSTALL_BINDIR "bind")
+        set(CMAKE_INSTALL_LIBDIR "libd")
     endif()
 
   include(CMakePackageConfigHelpers)

@@ -23,8 +23,8 @@ endif ()
 if(CMAKE_BUILD_TYPE STREQUAL Debug)
   # attach debug postfix only in debug mode
   set(protobuf_LIBRARY_POSTFIX ${protobuf_DEBUG_POSTFIX})
-  set(CMAKE_INSTALL_BINDIR ${CMAKE_INSTALL_BINDIR}${protobuf_DEBUG_POSTFIX})
-  set(CMAKE_INSTALL_LIBDIR ${CMAKE_INSTALL_LIBDIR}${protobuf_DEBUG_POSTFIX})
+  set(CMAKE_INSTALL_BINDIR "bin${protobuf_DEBUG_POSTFIX}")
+  set(CMAKE_INSTALL_LIBDIR "lib${protobuf_DEBUG_POSTFIX}")
 endif()
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/cmake/protobuf.pc.cmake
                ${CMAKE_CURRENT_BINARY_DIR}/protobuf.pc @ONLY)

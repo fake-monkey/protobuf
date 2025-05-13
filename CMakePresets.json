@@ -16,7 +16,7 @@
         "BUILD_SHARED_LIBS": "ON",
         "protobuf_WITH_ZLIB": "OFF"
       },
-      "toolchainFile": "${sourceDir}/build_msvc/generators/conan_toolchain.cmake"
+      "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
     },
     {
       "name": "VS2022_x64-Release",
@@ -26,6 +26,15 @@
         "CMAKE_BUILD_TYPE": "Release",
         "CMAKE_CONFIGURATION_TYPES": "Release"
       }
+    },
+    {
+      "name": "VS2022_x64-Debug",
+      "inherits": "VS2022_x64-Base",
+      "binaryDir": "${sourceDir}/build_msvc/Debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CONFIGURATION_TYPES": "Debug"
+      }
     }
   ],
   "buildPresets": [
@@ -33,6 +42,11 @@
       "name": "Release",
       "configurePreset": "VS2022_x64-Release",
       "configuration": "Release"
+    },
+    {
+      "name": "Debug",
+      "configurePreset": "VS2022_x64-Debug",
+      "configuration": "Debug"
     }
   ]
 }

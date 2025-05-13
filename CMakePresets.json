@@ -1,4 +1,4 @@
-﻿{
+{
   "version": 4,
   "configurePresets": [
     {
@@ -14,7 +14,9 @@
         "protobuf_LOCAL_DEPENDENCIES_ONLY": "ON",
         "protobuf_BUILD_TESTS": "OFF",
         "BUILD_SHARED_LIBS": "ON",
-        "protobuf_WITH_ZLIB": "OFF"
+        "protobuf_WITH_ZLIB": "OFF",
+        "CMAKE_CXX_STANDARD": "17",
+        "CMAKE_CXX_STANDARD_REQUIRED": "ON"
       },
       "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
     },

@@ -11,7 +11,7 @@ class ProtoBufRecipe(ConanFile):
     settings = "os", "arch"
     
     def package_info(self):
-        self.cpp_info.builddirs = ["lib/cmake/"]
+        self.cpp_info.builddirs = ["cmake/protobuf","cmake/utf8_range"]
         self.cpp_info.set_property("cmake_find_mode", "none")
     
     def package_id(self):

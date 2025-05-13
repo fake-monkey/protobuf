@@ -59,11 +59,17 @@ endif ()
 
 # Configure installation.
 if (utf8_range_ENABLE_INSTALL)
+    if(CMAKE_BUILD_TYPE STREQUAL Debug)
+        # attach debug postfix only in debug mode
+        set(CMAKE_INSTALL_BINDIR ${CMAKE_INSTALL_BINDIR}${protobuf_DEBUG_POSTFIX})
+        set(CMAKE_INSTALL_LIBDIR ${CMAKE_INSTALL_LIBDIR}${protobuf_DEBUG_POSTFIX})
+    endif()
+
   include(CMakePackageConfigHelpers)
   include(GNUInstallDirs)
 
   install(EXPORT ${PROJECT_NAME}-targets
-    DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}"
+    DESTINATION "cmake/${PROJECT_NAME}"
     NAMESPACE utf8_range::
   )
   install(TARGETS utf8_validity utf8_range EXPORT ${PROJECT_NAME}-targets
@@ -75,10 +81,10 @@ if (utf8_range_ENABLE_INSTALL)
   configure_package_config_file(
     cmake/${PROJECT_NAME}-config.cmake.in
     "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}-config.cmake"
-    INSTALL_DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}"
+    INSTALL_DESTINATION "cmake/${PROJECT_NAME}"
   )
   install(FILES "${PROJECT_BINARY_DIR}/${PROJECT_NAME}-config.cmake"
-    DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}"
+    DESTINATION "cmake/${PROJECT_NAME}"
   )
   configure_file(${CMAKE_CURRENT_SOURCE_DIR}/cmake/utf8_range.pc.cmake
                  ${CMAKE_CURRENT_BINARY_DIR}/utf8_range.pc @ONLY)
